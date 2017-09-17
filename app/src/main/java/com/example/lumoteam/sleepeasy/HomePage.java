@@ -19,8 +19,6 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         log = (Button) findViewById(R.id.Log);
         play = (Button) findViewById(R.id.Play);
         settings = (Button) findViewById(R.id.Settings);

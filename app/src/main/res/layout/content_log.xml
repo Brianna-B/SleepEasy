@@ -12,31 +12,31 @@
         android:id="@+id/sleepTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Time you fell asleep"
-        android:inputType="time"
-        tools:layout_constraintTop_creator="1"
+        android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="70dp"
-        tools:layout_constraintLeft_creator="1"
+        android:ems="10"
+        android:hint="@string/time_you_fell_asleep"
+        android:inputType="time"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="28dp" />
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/wakeTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Time you woke up"
-        android:inputType="time"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/sleepTime"
         android:layout_marginTop="35dp"
+        android:ems="10"
+        android:hint="@string/time_you_woke_up"
+        android:inputType="time"
+        app:layout_constraintLeft_toLeftOf="@+id/sleepTime"
+        app:layout_constraintRight_toRightOf="@+id/sleepTime"
         app:layout_constraintTop_toBottomOf="@+id/sleepTime"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/sleepTime" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/outOfBedTime"
@@ -54,12 +54,4 @@
         app:layout_constraintLeft_toLeftOf="@+id/wakeTime"
         app:layout_constraintHorizontal_bias="0.0" />
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_bright"
-        android:text="Save"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="306dp" />
 </android.support.constraint.ConstraintLayout>
