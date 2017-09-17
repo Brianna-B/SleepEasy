@@ -16,23 +16,34 @@ public enum NoisePickManager {
     INSTANCE;
 
     private Context context;
+    int numOfSound;
 
-    public void init(Context context) {
+    public void init(Context context, int numOfSound) {
+        this.numOfSound = numOfSound;
         this.context = context.getApplicationContext();
+        SharedPreferences scoresPref = context.getSharedPreferences(context.getString(R.string.preference_scores), Context.MODE_PRIVATE);
+        for (int i=0; i<numOfSound; i++) {
+            if (!scoresPref.contains(String.valueOf(i))) {
+                scoresPref.edit().putFloat(String.valueOf(i), 50).apply();
+            }
+        }
     }
 
     private List<Float> getScores() {
         SharedPreferences scoresPref = context.getSharedPreferences(context.getString(R.string.preference_scores), Context.MODE_PRIVATE);
         Map<String, ?> scoresMap = scoresPref.getAll();
         List<Float> scores = new ArrayList<>();
+        for (int i = 0; i < numOfSound; i++) {
+            scores.add(Float.valueOf("0"));
+        }
         for (Map.Entry<String, ?> entry : scoresMap.entrySet()){
-            scores.add(Integer.valueOf(entry.getKey()), Float.valueOf(entry.getValue().toString()));
+            scores.set(Integer.valueOf(entry.getKey()), Float.valueOf(entry.getValue().toString()));
         }
         return scores;
     }
 
     public List<Integer> pick(int num) {
-        List<Integer> pickedNoises = new ArrayList<>();
+        List<Integer> pickedNoises = new ArrayList<>(num);
         List<Float> scores = getScores();
         SharedPreferences lastPickedPref = context.getSharedPreferences(context.getString(R.string.preference_lastpicked), Context.MODE_PRIVATE);
         SharedPreferences.Editor lastPickedEditor = lastPickedPref.edit();
@@ -48,6 +59,7 @@ public enum NoisePickManager {
                     scores.set(j, 0.0f);
                     pickedNoises.add(j);
                     lastPickedEditor.putInt(String.valueOf(i), j);
+                    break;
                 }
             }
         }

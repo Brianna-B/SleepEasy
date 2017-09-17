@@ -18,4 +18,18 @@
     <string name="preference_scores">PREFERENCE_SCORES</string>
     <string name="preference_lastpicked">PREFERENCE_LAST_PICKED</string>
     <string name="preference_trend_value">PREFERENCE_TREND_VALUE</string>
+    <string name="log">Log</string>
+    <string name="play">Play</string>
+    <string name="title_activity_log">log</string>
+    <string name="title_activity_settings">settings</string>
+    <string name="how_long_do_you_want_to_play_white_noise">How long do you want to play white noise</string>
+    <string name="how_long_do_you_want_to_sleep">How long do you want to sleep</string>
+    <string name="save">Save</string>
+    <string name="time_you_fell_asleep">Time you fell asleep</string>
+    <string name="time_you_got_out_of_bed">Time you got out of bed</string>
+    <string name="time_you_woke_up">Time you woke up</string>
+    <string name="preference_getIntoBedDate">PREFERENCE_GETINTOBEDDATE</string>
+    <string name="preference_settings">PREFERENCE_SETTINGS</string>
+    <string name="play_time_min">PLAY_TIME_MIN</string>
+    <string name="sleep_duration_min">SLEEP_DURATION_MIN</string>
 </resources>
