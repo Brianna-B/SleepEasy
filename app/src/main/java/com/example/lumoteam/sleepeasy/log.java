@@ -1,5 +1,6 @@
 package com.example.lumoteam.sleepeasy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,6 +28,8 @@ public class log extends AppCompatActivity {
                 sleepTime = (EditText) findViewById(R.id.sleepTime);
                 wakeTime = (EditText) findViewById(R.id.wakeTime);
                 outOfBedTime = (EditText) findViewById(R.id.outOfBedTime);
+                android.content.Intent intent = new Intent(log.this, HomePage.class);
+                startActivity(intent);
             }
 
         });
