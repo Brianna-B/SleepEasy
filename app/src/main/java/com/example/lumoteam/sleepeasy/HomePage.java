@@ -23,6 +23,20 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        String key = getApplicationContext().getString(R.string.preference_settings);
+        SharedPreferences settingsPref = getApplicationContext().getSharedPreferences(key, Context.MODE_PRIVATE);
+        SharedPreferences.Editor settingsEdit = settingsPref.edit();
+        String time_key = getApplicationContext().getString(R.string.play_time_min);
+        if (!settingsPref.contains(time_key)) {
+            settingsEdit.putInt(time_key, 60);
+        }
+        String duration_key = getApplicationContext().getString(R.string.sleep_duration_min);
+        if (!settingsPref.contains(duration_key)) {
+            settingsEdit.putInt(duration_key, 8*60);
+        }
+        settingsEdit.apply();
+
         SoundPlay.INSTANCE.init(getApplicationContext());
         NoisePickManager.INSTANCE.init(getApplicationContext(), 15);
         log = (Button) findViewById(R.id.Log);

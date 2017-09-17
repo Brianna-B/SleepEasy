@@ -88,11 +88,18 @@ public class log extends AppCompatActivity {
         saveLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String settingsKey = getApplicationContext().getString(R.string.preference_settings);
+                SharedPreferences settingsPref = getApplicationContext().getSharedPreferences(settingsKey, Context.MODE_PRIVATE);
+                String duration_key = getApplicationContext().getString(R.string.sleep_duration_min);
+                int duration = settingsPref.getInt(duration_key, 60*8);
+                Calendar plannedWakeupCal = (Calendar) sleepCalendar.clone();
+                plannedWakeupCal.add(Calendar.MINUTE, duration);
+
                 RatingBar ratingBar = (RatingBar) findViewById(R.id.sleepWell);
                 String key = getApplicationContext().getString(R.string.preference_getIntoBedDate);
                 SharedPreferences datePref = getApplicationContext().getSharedPreferences(key, Context.MODE_PRIVATE);
                 Date intoBedDate = new Date(datePref.getLong(key, 0));
-                NoisePickManager.INSTANCE.update(sleepCalendar.getTime(), intoBedDate, wakeupCalendar.getTime(), new Date(), ratingBar.getNumStars()*20);
+                NoisePickManager.INSTANCE.update(sleepCalendar.getTime(), intoBedDate, wakeupCalendar.getTime(), plannedWakeupCal.getTime(), ratingBar.getNumStars()*20);
                 android.content.Intent intent = new Intent(log.this, HomePage.class);
                 startActivity(intent);
             }

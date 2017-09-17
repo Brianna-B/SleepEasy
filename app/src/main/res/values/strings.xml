@@ -29,4 +29,7 @@
     <string name="time_you_got_out_of_bed">Time you got out of bed</string>
     <string name="time_you_woke_up">Time you woke up</string>
     <string name="preference_getIntoBedDate">PREFERENCE_GETINTOBEDDATE</string>
+    <string name="preference_settings">PREFERENCE_SETTINGS</string>
+    <string name="play_time_min">PLAY_TIME_MIN</string>
+    <string name="sleep_duration_min">SLEEP_DURATION_MIN</string>
 </resources>
