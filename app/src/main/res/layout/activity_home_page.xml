@@ -20,14 +20,38 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_home_page" />
+    <include layout="@layout/content_home_page"
+        android:id="@+id/include" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <Button
+        android:id="@+id/Play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_gravity="top|center_horizontal"
+        android:background="@android:color/holo_blue_bright"
+        android:text="@string/play"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|center_horizontal" />
+
+    <Button
+        android:id="@+id/Log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@android:color/holo_blue_bright"
+        android:text="@string/log"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|center_horizontal" />
+
+    <Button
+        android:id="@+id/Settings"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:background="@android:drawable/ic_menu_edit"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="top|right"
+        tools:ignore="RtlHardcoded" />
 
 </android.support.design.widget.CoordinatorLayout>

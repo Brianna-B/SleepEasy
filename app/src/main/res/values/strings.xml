@@ -15,4 +15,7 @@
         completions."
     </string>
     <string name="title_activity_home_page">HomePage</string>
+    <string name="log">Log</string>
+    <string name="play">Play</string>
+    <string name="title_activity_log">log</string>
 </resources>
