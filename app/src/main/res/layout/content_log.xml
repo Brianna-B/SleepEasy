@@ -53,4 +53,13 @@
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/wakeTime"
         app:layout_constraintHorizontal_bias="0.0" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Save"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="306dp" />
 </android.support.constraint.ConstraintLayout>
