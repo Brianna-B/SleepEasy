@@ -15,4 +15,7 @@
         completions."
     </string>
     <string name="title_activity_home_page">HomePage</string>
+    <string name="preference_scores">PREFERENCE_SCORES</string>
+    <string name="preference_lastpicked">PREFERENCE_LAST_PICKED</string>
+    <string name="preference_trend_value">PREFERENCE_TREND_VALUE</string>
 </resources>
