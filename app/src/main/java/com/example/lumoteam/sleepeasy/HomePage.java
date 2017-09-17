@@ -4,16 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.view.View.OnClickListener;
 
-import android.widget.Button;
-import android.util.Log;
+import java.util.List;
 
 import java.util.Date;
 
@@ -21,14 +16,15 @@ public class HomePage extends AppCompatActivity {
     private android.widget.Button play;
     private android.widget.Button log;
     private android.widget.Button settings;
-    private static SoundPlay soundPlay;
+    private List<Integer> noises;
+    private int isPlaying = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         SoundPlay.INSTANCE.init(getApplicationContext());
-        NoisePickManager.INSTANCE.init(getApplicationContext(),15);
+        NoisePickManager.INSTANCE.init(getApplicationContext(), 15);
         log = (Button) findViewById(R.id.Log);
         play = (Button) findViewById(R.id.Play);
         settings = (Button) findViewById(R.id.Settings);
@@ -39,6 +35,22 @@ public class HomePage extends AppCompatActivity {
                 String key = getApplicationContext().getString(R.string.preference_getIntoBedDate);
                 SharedPreferences datePref = getApplicationContext().getSharedPreferences(key, Context.MODE_PRIVATE);
                 datePref.edit().putLong(key, datetime).apply();
+
+                System.out.println(isPlaying);
+                if (isPlaying == 0) {
+                    isPlaying = 1;
+                    noises = NoisePickManager.INSTANCE.pick(5);
+                    System.out.println(noises);
+                    SoundPlay.INSTANCE.play(noises);
+                }
+                else if (isPlaying == 1){
+                    isPlaying = -1;
+                    SoundPlay.INSTANCE.pause();
+                }
+                else {
+                    isPlaying = 1;
+                    SoundPlay.INSTANCE.resume();
+                }
             }
         });
         log.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +73,7 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        soundPlay.stop();
+        SoundPlay.INSTANCE.stop();
         getDelegate().onDestroy();
     }
 }

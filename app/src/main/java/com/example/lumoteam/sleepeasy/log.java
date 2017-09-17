@@ -3,6 +3,7 @@ package com.example.lumoteam.sleepeasy;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,8 +17,14 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 import java.util.Date;
+import android.widget.EditText;
 
 public class log extends AppCompatActivity {
+    public android.widget.EditText sleepTime;
+    public android.widget.EditText wakeTime;
+    public android.widget.EditText outOfBedTime;
+    public float sleepEfficiency;
+    private android.widget.Button saveLog;
 
     private Calendar sleepCalendar;
     private Calendar wakeupCalendar;
@@ -86,6 +93,8 @@ public class log extends AppCompatActivity {
                 SharedPreferences datePref = getApplicationContext().getSharedPreferences(key, Context.MODE_PRIVATE);
                 Date intoBedDate = new Date(datePref.getLong(key, 0));
                 NoisePickManager.INSTANCE.update(sleepCalendar.getTime(), intoBedDate, wakeupCalendar.getTime(), new Date(), ratingBar.getNumStars()*20);
+                android.content.Intent intent = new Intent(log.this, HomePage.class);
+                startActivity(intent);
             }
         });
     }
