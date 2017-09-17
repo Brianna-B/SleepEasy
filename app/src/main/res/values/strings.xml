@@ -28,4 +28,5 @@
     <string name="time_you_fell_asleep">Time you fell asleep</string>
     <string name="time_you_got_out_of_bed">Time you got out of bed</string>
     <string name="time_you_woke_up">Time you woke up</string>
+    <string name="preference_getIntoBedDate">PREFERENCE_GETINTOBEDDATE</string>
 </resources>
