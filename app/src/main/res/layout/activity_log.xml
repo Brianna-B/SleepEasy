@@ -6,52 +6,36 @@
     android:layout_height="match_parent"
     tools:context="com.example.lumoteam.sleepeasy.log">
 
-    <EditText
+
+    <TextView
         android:id="@+id/sleepTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/time_you_fell_asleep"
-        android:inputType="time"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="70dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="28dp" />
+        android:text="TextView"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="94dp"
+        tools:text="when did you sleep" />
 
-    <EditText
-        android:id="@+id/wakeTime"
+    <TextView
+        android:id="@+id/wakeUpTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/time_you_woke_up"
-        android:inputType="time"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/sleepTime"
-        android:layout_marginTop="35dp"
-        app:layout_constraintTop_toBottomOf="@+id/sleepTime"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/sleepTime" />
+        android:text="TextView"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="152dp"
+        tools:text="when did you wake up" />
 
-    <EditText
+    <TextView
         android:id="@+id/outOfBedTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/time_you_got_out_of_bed"
-        android:inputType="time"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/wakeTime"
-        android:layout_marginTop="35dp"
-        app:layout_constraintTop_toBottomOf="@+id/wakeTime"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/wakeTime"
-        app:layout_constraintHorizontal_bias="0.0" />
-
+        android:text="TextView"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="204dp"
+        tools:text="when did you get out of bed" />
 
     <include layout="@layout/content_log"
         android:layout_height="0dp"
@@ -74,10 +58,16 @@
         tools:ignore="MissingConstraints"
         tools:layout_constraintTop_creator="1"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="31dp"
-        app:layout_constraintTop_toBottomOf="@+id/outOfBedTime"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="28dp" />
+        android:layout_marginLeft="28dp"
+        tools:layout_editor_absoluteY="328dp" />
+
+    <RatingBar
+        android:id="@+id/sleepWell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="255dp" />
 
 </android.support.constraint.ConstraintLayout>

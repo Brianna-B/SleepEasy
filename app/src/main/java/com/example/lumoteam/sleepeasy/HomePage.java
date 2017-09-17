@@ -1,12 +1,16 @@
 package com.example.lumoteam.sleepeasy;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.List;
+
+import java.util.Date;
 
 public class HomePage extends AppCompatActivity {
     private android.widget.Button play;
@@ -27,6 +31,11 @@ public class HomePage extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                long datetime = new Date().getTime();
+                String key = getApplicationContext().getString(R.string.preference_getIntoBedDate);
+                SharedPreferences datePref = getApplicationContext().getSharedPreferences(key, Context.MODE_PRIVATE);
+                datePref.edit().putLong(key, datetime).apply();
+
                 System.out.println(isPlaying);
                 if (isPlaying == 0) {
                     isPlaying = 1;
