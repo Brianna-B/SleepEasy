@@ -48,12 +48,13 @@ public class log extends AppCompatActivity {
                         sleepCalendar.set(Calendar.HOUR, hourOfDay);
                         sleepCalendar.set(Calendar.MINUTE, minute);
                         if(hourOfDay < 12) sleepCalendar.add(Calendar.DAY_OF_YEAR, -1);
+                        sleepTime.setText("sleep at" + sleepCalendar.toString());
                     }
                 });
                 fragment.show(getSupportFragmentManager(), "sleepTime");
             }
         });
-        TextView wakeTime = (TextView) findViewById(R.id.wakeTime);
+        final TextView wakeTime = (TextView) findViewById(R.id.wakeUpTime);
         wakeTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +65,7 @@ public class log extends AppCompatActivity {
                         wakeupCalendar = Calendar.getInstance();
                         wakeupCalendar.set(Calendar.HOUR, hourOfDay);
                         wakeupCalendar.set(Calendar.MINUTE, minute);
+                        wakeTime.setText("wake up at" + sleepCalendar.toString());
                     }
                 });
                 fragment.show(getSupportFragmentManager(), "wakeTime");
@@ -80,6 +82,7 @@ public class log extends AppCompatActivity {
                         outOfBedCalendar = Calendar.getInstance();
                         outOfBedCalendar.set(Calendar.HOUR, hourOfDay);
                         outOfBedCalendar.set(Calendar.MINUTE, minute);
+                        outOfBedTime.setText("out of bed at" + sleepCalendar.toString());
                     }
                 });
                 fragment.show(getSupportFragmentManager(), "outOfBedTime");
