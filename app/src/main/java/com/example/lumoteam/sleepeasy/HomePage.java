@@ -33,15 +33,19 @@ public class HomePage extends AppCompatActivity {
                     noises = NoisePickManager.INSTANCE.pick(5);
                     System.out.println(noises);
                     SoundPlay.INSTANCE.play(noises);
+                    play.setText("pause");
                 }
                 else if (isPlaying == 1){
                     isPlaying = -1;
                     SoundPlay.INSTANCE.pause();
+                    play.setText("play");
                 }
                 else {
                     isPlaying = 1;
                     SoundPlay.INSTANCE.resume();
+                    play.setText("pause");
                 }
+
             }
         });
         log.setOnClickListener(new View.OnClickListener() {
